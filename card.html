@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Card</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Hide an element with a specific id or class */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="cover" id="cover">
+            <h1>𝐇ᴀᴘᴘʏ 𝐁ɪʀᴛʜᴅᴀʏ 𝐒ᴜʜᴀɴɪ ❤️</h1>
+            <div class="photos">
+                <img src="image1.png" alt="Photo 1" class="rectangle-photo">
+            </div>
+        </div>
+        <div class="inside" id="inside">
+            <img src="image.png" alt="Birthday Photo" class="photo">
+            <p class="message">𝖧𝖺𝗉𝗉𝗒 𝖡𝗂𝗋𝗍𝗁𝖽𝖺𝗒 𝖪𝗂𝖽𝖽𝗈 , 𝗁𝖺𝗆𝖾𝗌𝖺 𝗄𝗁𝗎𝗌𝗁 𝗋𝖺𝗁𝗂𝗒𝖾 𝖺𝗇𝖽 𝗁𝖺𝗆𝖾𝗌𝖺 𝗌𝗆𝗂𝗅𝖾 𝗄𝗋𝗍𝖾 𝗋𝖺𝗁𝗂𝗒𝖾. 𝖠𝗉𝗄𝖾 𝗌𝖺𝗋𝖾 𝖣𝗋𝖾𝖺𝗆𝗌 𝖺𝗇𝖽 𝖦𝗈𝖺𝗅𝗌 𝗉𝗎𝗋𝖾 𝗁𝗈𝗃𝖺𝗒𝖾 𝖺𝗇𝖽 𝖺𝗉 𝗁𝖺𝗆𝖾𝗌𝖺 𝗍𝖺𝗋𝖺𝗄𝗄𝗂 𝗄𝗋𝗈 , 𝖡𝗁𝖺𝗀𝗐𝖺𝗇 𝗁𝖺𝗆𝖾𝗌𝖺 𝖺𝗉𝗄𝖾 𝗎𝗉𝖾𝗋 𝗄𝗋𝗂𝗉𝖺 𝖻𝖺𝗇𝖺𝗒𝖾 𝗋𝖺𝗄𝗁𝖾 😁❤️</p>
+            <button class="next-btn">Next</button>
+        </div>
+        <div class="inside next-page" id="nextPage">
+            <img src="image2.png" alt="Another Birthday Photo" class="photo">
+            <p class="message">𝖤𝗇𝗃𝗈𝗒 𝖸𝗈𝗎𝗋 𝖣𝖺𝗒 ❤️</p>
+        </div>
+    </div>
+
+    <!-- Audio Player -->
+    <audio id="backgroundMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Play the audio once the page has loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('backgroundMusic');
+            audio.play().catch(function(error) {
+                console.log('Playback prevented:', error);
+                document.body.addEventListener('click', function() {
+                    audio.play();
+                }, { once: true });
+            });
+        });
+
+        // JavaScript to handle page flipping
+        document.getElementById('cover').addEventListener('click', function() {
+            document.querySelector('.card').classList.add('open');
+        });
+
+        document.querySelector('.next-btn').addEventListener('click', function() {
+            document.querySelector('.card').classList.add('show-next');
+        });
+    </script>
+</body>
+</html>
